@@ -1,11 +1,9 @@
 pipeline {
-    agent {
-        label 'master'
-    }
+    agent any
 
     parameters {
-        string(name: 'Git_repository', defaultValue: 'git@github.com:senkodima/DevOps_course_Project.git', description: 'My repository (Clone with SSH)')
-        credentials(name: 'Git_credentials', defaultValue: 'jenkins', description: 'Credentials to use for github repo', credentialType: "SSH username with private key", required: true )
+        string(name: 'Git_repository', defaultValue: 'git@github.com:TrushynA/sa2_git.git', description: 'My repository (Clone with SSH)')
+        credentials(name: 'Git_credentials', defaultValue: 'github_token', description: 'Credentials to use for github repo', credentialType: "SSH username with private key", required: true )
     }
     
     stages {

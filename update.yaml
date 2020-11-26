@@ -52,7 +52,7 @@
             url: "http://{{ ansible_ssh_host }}:8080"
             return_content: yes
           register: out
-          failed_when: "'My name is Dmitry' not in out.content"
+          failed_when: "'Comrades' not in out.content"
           become: no
         
         - name: Show content
