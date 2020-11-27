@@ -49,7 +49,7 @@
       block:
         - name: Checks if it works
           uri:
-            url: "localhost:8079"
+            url: "http://localhost:8079"
             return_content: yes
           register: out
           failed_when: "'Comrades' not in out.content"
