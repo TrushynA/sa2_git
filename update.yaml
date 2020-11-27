@@ -53,6 +53,7 @@
             return_content: yes
           register: out
           failed_when: "'Comrades' not in out.content"
+#          become: no
         
         - name: Show content
           debug:
