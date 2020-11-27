@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  gather_facts: yes # to get "ansible_hostname" in "Notify Slack of Playbook"
+  gather_facts: yes 
   become: yes
   vars:
     name_cms: "wordpress"
@@ -67,9 +67,3 @@
         - include_role:
             name: slack_handler
             tasks_from: failure
-            
-        # - name: Import playbook tasks
-        #   include_role:
-        #     name: rollback
-        #     tasks_from: rollback
-        #   tags: never
