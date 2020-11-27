@@ -48,7 +48,7 @@
     - name: Checks if App working correctly
       block:
         - name: Checks if it works
-	  debug: msg="{{ lookup('url', 'http:127.0.0.1:8080', split_lines=False) }}"
+          debug: msg="{{ lookup('url', 'http:127.0.0.1:8080', split_lines=False) }}"
 #          uri:
 #            url: "http://127.0.0.1:8080"
 #            return_content: yes
