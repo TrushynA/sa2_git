@@ -49,7 +49,7 @@
       block:
         - name: Checks if it works
           uri:
-            url: "http://127.0.0.1:8079"
+            url: "http://192.168.201.101:8080"
             return_content: yes
           register: out
           failed_when: "'Comrades' not in out.content"
@@ -59,11 +59,11 @@
           debug:
             msg: "out.status"
         
-#        - name: Notify Slack if all good
-#          include_role:
-#            name: slack_handler
-#            tasks_from: good
-#      rescue:
-#        - include_role:
-#            name: slack_handler
-#            tasks_from: failure
+        - name: Notify Slack if all good
+          include_role:
+            name: slack_handler
+            tasks_from: good
+      rescue:
+        - include_role:
+            name: slack_handler
+            tasks_from: failure
