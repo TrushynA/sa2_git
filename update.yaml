@@ -59,11 +59,11 @@
           debug:
             msg: "out.status"
         
-        - name: Notify Slack if all good
-          include_role:
-            name: slack_handler
-            tasks_from: good
-      rescue:
-        - include_role:
-            name: slack_handler
-            tasks_from: failure
+#        - name: Notify Slack if all good
+#          include_role:
+#            name: slack_handler
+#            tasks_from: good
+#      rescue:
+#        - include_role:
+#            name: slack_handler
+#            tasks_from: failure
