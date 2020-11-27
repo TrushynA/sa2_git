@@ -47,25 +47,17 @@
 
     - name: Checks if App working correctly
       block:
-        shell: |
-    	  curl localhost:8080
-        args:
-          executable: /bin/bash
-        register: out
-        failed_when: "'Comrades' not in out.content"
-        become: no
-#      block:
-#        - name: Checks if it works
-#          uri:
-#            url: "http://127.0.0.1:8080"
-#            return_content: yes
-#          register: out
-#          failed_when: "'Comrades' not in out.content"
-#          become: no
-#        
-#        - name: Show content
-#          debug:
-#            msg: "out.status"
+        - name: Checks if it works
+          uri:
+            url: "http://127.0.0.1:8080"
+            return_content: yes
+          register: out
+          failed_when: "'Comrades' not in out.content"
+          become: no
+        
+        - name: Show content
+          debug:
+            msg: "out.status"
         
         - name: Notify Slack if all good
           include_role:
