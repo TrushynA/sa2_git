@@ -61,10 +61,10 @@
 #          register: out
 #          failed_when: "'Comrades' not in out.content"
 #          become: no
-        
-        - name: Show content
-          debug:
-            msg: "out.status"
+#        
+#        - name: Show content
+#          debug:
+#            msg: "out.status"
         
         - name: Notify Slack if all good
           include_role:
