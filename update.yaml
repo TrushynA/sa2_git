@@ -46,13 +46,14 @@
         executable: /bin/bash
 
     - name: Checks if App working correctly
-      shell: |
-        curl localhost:8080
-      args:
-        executable: /bin/bash
-      register: out
-      failed_when: "'Comrades' not in out.content"
-      become: no
+      block:
+        shell: |
+    	  curl localhost:8080
+        args:
+          executable: /bin/bash
+        register: out
+        failed_when: "'Comrades' not in out.content"
+        become: no
 #      block:
 #        - name: Checks if it works
 #          uri:
